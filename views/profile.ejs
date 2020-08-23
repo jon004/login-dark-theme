@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Montserrat&family=Nunito&family=Courier+Prime&display=swap" rel="stylesheet">
+</head>
+
+<body onload="validRegistration();">
+
+  <div class="header-wrapper noselect">
+    <script>
+    function toggleMobileMenu(){
+      let menu = document.getElementById("mobile-menu");
+      menu.className = (menu.className === "mobile-menu closed") ?
+      "mobile-menu" : "mobile-menu closed";
+    }
+    </script>
+    <div class="header">
+      <div class="btn logo"><a href="/">LOGO</a></div>
+      <div class="btn" id="mobile-btn-wrap">
+        <div class="mobile-btn" onclick="toggleMobileMenu();">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div class="left-header">
+        <span class="mobile-menu closed" id="mobile-menu">
+          <div class="btn mobile-only" onclick="toggleMobileMenu();" style="cursor:pointer;"><a style="padding:0 5px;font-size:22px;">&#10005;</a></div>
+          <div class="btn link"><a>Block A</a></div>
+          <div class="btn link"><a>Block B</a></div>
+        </span>
+        <div class="btn"><a class="special" href="/logout">Log Out</a></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h1>Profile</h1>
+  <h2><%= uname %></h2>
+
+</body>
+
+</html>

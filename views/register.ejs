@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Montserrat&family=Nunito&family=Courier+Prime&display=swap" rel="stylesheet">
+</head>
+
+<body onload="validRegistration();">
+
+
+
+  <div class="header-wrapper noselect">
+    <script>
+    function toggleMobileMenu(){
+      let menu = document.getElementById("mobile-menu");
+      menu.className = (menu.className === "mobile-menu closed") ?
+      "mobile-menu" : "mobile-menu closed";
+    }
+    </script>
+    <div class="header">
+      <div class="btn logo"><a href="/">LOGO</a></div>
+      <div class="btn" id="mobile-btn-wrap">
+        <div class="mobile-btn" onclick="toggleMobileMenu();">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div class="left-header">
+        <span class="mobile-menu closed" id="mobile-menu">
+          <div class="btn mobile-only" onclick="toggleMobileMenu();" style="cursor:pointer;"><a style="padding:0 5px;font-size:22px;">&#10005;</a></div>
+          <div class="btn link"><a>Block A</a></div>
+          <div class="btn link"><a>Block B</a></div>
+        </span>
+        <div class="btn"><a class="special" href="/login">Log In</a></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/general.js"></script>
+  <script src="js/registration.js"></script>
+  <div class="login-wrapper">
+    <form method="POST" action="/register">
+      <div class="title">Register</div>
+      <div class="block">
+        <label for="email">Email: </label>
+        <input class="input-text" name="email" id="email" onkeyup="validRegistration();" type="text"/>
+      </div>
+      <div class="block">
+        <label for="uname">Username: </label>
+        <input class="input-text" name="uname" id="uname" onkeyup="validRegistration();" oninput="fixUname();" type="text" />
+      </div>
+      <div class="block">
+        <label for="passw">Password: </label>
+        <input class="input-text" name="passw" id="passw" onkeyup="validRegistration();" oninput="fixPassw(0);" type="password" />
+      </div>
+      <div class="block" style="padding-bottom: 30px;">
+        <label for="passw-conf">Password Confirm: </label>
+        <input class="input-text" name="passw_confirm" id="passwb" onkeyup="validRegistration();" oninput="fixPassw(1);" type="password" />
+      </div>
+
+      <% if(err == 1 || err == 3){ %>
+      <div class="register-err" id="register-err"><span>X</span> The previous email was taken</div>
+      <% } %>
+      <% if(err == 2 || err == 3){ %>
+      <div class="register-err" id="register-err"><span>X</span> The previous username was taken</div>
+      <% } %>
+      <div class="register-err" id="erra" style="display:none;"><span>x</span> Invalid email</div>
+      <div class="register-err pass" id="erra-pass" style="display:none;"><span>&#10003;</span> Valid email</div>
+      <div class="register-err" id="errc" style="display:none;"><span>x</span> Passwords don't match</div>
+      <div class="register-err pass" id="errc-pass" style="display:none;"><span>&#10003;</span> Passwords match</div>
+      <div class="register-err" id="errb" style="display:none;"><span>x</span> Username: 3-25 characters</div>
+      <div class="register-err pass" id="errb-pass" style="display:none;"><span>&#10003;</span> Username: 3-25 characters</div>
+      <div class="register-err" id="errd" style="display:none;"><span>x</span> Password: 8-30 characters, at least one uppercase letter, one lowercase letter, one number and one special character</div>
+      <div class="register-err pass" id="errd-pass" style="display:none;"><span>&#10003;</span> Password: 8-30 characters, at least one uppercase letter, one lowercase letter, one number and one special character</div>
+
+      <input class="btn" type="submit" id="register-btn" style="margin-top: ;" value="Sign Up" disabled/>
+      <div class="sub-text">Click <a href="/login">here</a> to login</div>
+    </form>
+  </div>
+
+
+</body>
+
+</html>

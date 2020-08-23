@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Montserrat&family=Nunito&family=Courier+Prime&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="header-wrapper noselect">
+    <script>
+    function toggleMobileMenu(){
+      let menu = document.getElementById("mobile-menu");
+      menu.className = (menu.className === "mobile-menu closed") ?
+      "mobile-menu" : "mobile-menu closed";
+    }
+    </script>
+    <div class="header">
+      <div class="btn logo"><a href="/">LOGO</a></div>
+      <div class="btn" id="mobile-btn-wrap">
+        <div class="mobile-btn" onclick="toggleMobileMenu();">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+      <div class="left-header">
+        <span class="mobile-menu closed" id="mobile-menu">
+          <div class="btn mobile-only" onclick="toggleMobileMenu();" style="cursor:pointer;"><a style="padding:0 5px;font-size:22px;">&#10005;</a></div>
+          <div class="btn link"><a>Block A</a></div>
+          <div class="btn link"><a>Block B</a></div>
+        </span>
+        <div class="btn"><a class="special" href="/register">Sign Up</a></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="login-wrapper">
+    <form method="POST" action="/login">
+      <div class="title">Login</div>
+      <div class="block">
+        <label for="email">Username or Email: </label>
+        <input class="input-text" name="uname" id="email" type="text" required/>
+      </div>
+      <div class="block" style="padding-bottom: 0;">
+        <label for="passw">Password: </label>
+        <input class="input-text" name="passw" type="password" required/>
+      </div>
+      <div class="sub-text" style="float: right; padding-bottom: 20px;"><a href="/register">Forgot your password?</a></div>
+      <% if(err == true){ %>
+      <div class="register-err" style="margin-top:15px;"><span>X</span> Invalid Credentials</div>
+      <% } %>
+      <input class="btn" type="submit" value="Login"/>
+      <div class="sub-text">Click <a href="/register">here</a> to register</div>
+    </form>
+  </div>
+
+</body>
+
+</html>
